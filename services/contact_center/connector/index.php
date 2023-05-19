@@ -24,13 +24,13 @@ if($_GET['IFRAME'] !== 'Y')
 	);?>
 <?
 	$width = 700;
-	/*if(
+	if(
 		!empty($_REQUEST['ID'])
 		&& $_REQUEST['ID'] === 'facebook'
 	)
 	{
 		$width = 1000;
-	}*/
+	}
 ?>
 	<script>
 		BX.ready(function () {

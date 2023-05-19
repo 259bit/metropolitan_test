@@ -1,9 +1,12 @@
 <?php
+
 /**
  * @global  \CMain $APPLICATION
  * @global  \CUser $USER
  */
+
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
+
 $APPLICATION->SetPageProperty('NOT_SHOW_NAV_CHAIN', 'Y');
 $APPLICATION->SetPageProperty('title', htmlspecialcharsbx(COption::GetOptionString('main', 'site_name', 'Bitrix24')));
 
@@ -22,7 +25,7 @@ $APPLICATION->IncludeComponent(
 		'ITEMS_COUNT' => '32',
 		'NAME_TEMPLATE' => CSite::GetNameFormat(),
 		'SHOW_LOGIN' => 'Y',
-		'DATE_TIME_FORMAT' => 'd.m.Y H:i:s',
+		'DATE_TIME_FORMAT' => '#DATE_TIME_FORMAT#',
 		'SHOW_YEAR' => 'M',
 		'CACHE_TYPE' => 'A',
 		'CACHE_TIME' => '3600',
@@ -32,7 +35,7 @@ $APPLICATION->IncludeComponent(
 		'SET_LOG_CACHE' => 'Y',
 		'USE_COMMENTS' => 'Y',
 		'BLOG_ALLOW_POST_CODE' => 'Y',
-		'BLOG_GROUP_ID' => '1',
+		'BLOG_GROUP_ID' => '#BLOG_GROUP_ID#',
 		'PHOTO_USER_IBLOCK_TYPE' => 'photos',
 		'PHOTO_USER_IBLOCK_ID' => '#PHOTO_USER_IBLOCK_ID#',
 		'PHOTO_USE_COMMENTS' => 'Y',
@@ -118,7 +121,7 @@ if ($USER->IsAuthorized())
 		'important',
 		[
 			'BLOG_URL' => '',
-			'FILTER' => ['>UF_BLOG_POST_IMPRTNT' => 0, '!POST_PARAM_BLOG_POST_IMPRTNT' => ['USER_ID' => $USER->GetId(), 'VALUE' => 'Y']],
+			'FILTER' => ['=UF_BLOG_POST_IMPRTNT' => 1, '!POST_PARAM_BLOG_POST_IMPRTNT' => ['USER_ID' => $USER->GetId(), 'VALUE' => 'Y']],
 			'FILTER_NAME' => '',
 			'YEAR' => '',
 			'MONTH' => '',
@@ -203,8 +206,6 @@ $APPLICATION->IncludeComponent(
 		'CACHE_TYPE' => 'A',
 		'CACHE_TIME' => '86450',
 		'CACHE_DATE' => date('dmy'),
-		'DATE_FORMAT' => 'j F',
-		'DATE_FORMAT_NO_YEAR' => (LANGUAGE_ID == 'en') ? 'F j' : ((LANGUAGE_ID == 'de') ? 'j. F' : 'j F'),
 		'SHOW_YEAR' => 'N',
 		'DETAIL_URL' => SITE_DIR.'company/personal/user/#USER_ID#/',
 		'DEPARTMENT' => '0',
