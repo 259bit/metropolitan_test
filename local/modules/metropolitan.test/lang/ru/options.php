@@ -1,0 +1,4 @@
+<?php
+$MESS['METROPOLITAN_TEST_MODULE_TAB_MAIN'] = 'Общие настройки';
+$MESS['METROPOLITAN_TEST_MODULE_TAB_MAIN_SECTION'] = 'Настройки подключения к внешнему API';
+$MESS['METROPOLITAN_TEST_MODULE_URL_JSON'] = 'Ccылка на JSON';
